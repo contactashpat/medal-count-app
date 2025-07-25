@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div style={{ padding: 16 }}>
       <h1>Medal Count App</h1>
-      <MedalTable countries={data!} />
+      <MedalTable countries={data!} sortKey={"gold"} />
     </div>
   )
 }
