@@ -1,4 +1,5 @@
 import { useMedalData } from '@/hooks/useMedalData'
+import MedalTable from '@/components/MedalTable'
 
 export default function Home() {
   const { data, loading, error } = useMedalData()
@@ -9,7 +10,7 @@ export default function Home() {
   return (
     <div style={{ padding: 16 }}>
       <h1>Medal Count App</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <MedalTable countries={data!} />
     </div>
   )
 }
