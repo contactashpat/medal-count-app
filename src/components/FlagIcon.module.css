@@ -1,0 +1,12 @@
+/* 28 x 221 full sprite size
+ each flag height = 221 / 13 = 17px
+
+ */
+.flag {
+    width: 28px;
+    height: 17px;
+    background-image: url('/flags.png');
+    background-repeat: no-repeat;
+    background-size: 28px 221px;
+    display: inline-block;
+}
