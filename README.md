@@ -22,6 +22,10 @@ A mini app built with **Next.js** and **TypeScript** to display Olympic medal st
 
 ---
 
+## 📷 Demo
+
+<img src="public/demo.gif" alt="Medal Count App demo" width="100%" />
+
 ## 🔧 Tech Stack
 
 - Framework: **Next.js** (React + SSR)
