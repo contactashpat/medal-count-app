@@ -1,4 +1,5 @@
-"use client"
+'use client'
+
 import { useMedalData } from '@/hooks/useMedalData'
 import MedalTable from '@/components/MedalTable'
 import { useSearchParams } from 'next/navigation'
@@ -16,18 +17,21 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div style={{ padding: '1rem', textAlign: 'center' }}>
-        <p>⏳ Loading medal data...</p>
+      <div className="p-4 text-center">
+        <p className="animate-pulse text-gray-500">⏳ Loading medal data...</p>
       </div>
     )
   }
 
   if (error) {
     return (
-      <div style={{ padding: '1rem', textAlign: 'center', color: 'crimson' }}>
+      <div className="p-4 text-center text-red-600">
         <p>❌ Failed to load medal data</p>
-        <p style={{ fontSize: '0.9rem' }}>{error}</p>
-        <button onClick={() => location.reload()} style={{ marginTop: '0.5rem' }}>
+        <p className="text-sm">{error}</p>
+        <button
+          onClick={() => location.reload()}
+          className="mt-2 px-4 py-1 border border-red-500 text-red-500 rounded hover:bg-red-50 dark:hover:bg-zinc-800"
+        >
           Retry
         </button>
       </div>
@@ -35,9 +39,9 @@ export default function Home() {
   }
 
   return (
-    <div style={{ padding: 16 }}>
-      <h1>Medal Count App</h1>
+    <main className="p-6 max-w-4xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6">🏅 Medal Count App</h1>
       <MedalTable countries={data!} sortKey={sortKey} />
-    </div>
+    </main>
   )
 }

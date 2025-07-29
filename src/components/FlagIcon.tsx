@@ -17,9 +17,8 @@ export default function FlagIcon({ code }: Props) {
 
   return (
     <div
-      className={styles.flag}
+      className="w-[28px] h-[17px] bg-no-repeat bg-[url('/flags.png')] bg-left"
       style={{ backgroundPositionY: `${offsetY}px` }}
-      title={code}
     />
   )
 }

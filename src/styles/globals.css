@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import "@fontsource/inter/variable.css";
+
+body {
+    font-family: 'InterVariable', sans-serif;
+}
 
 :root {
   --background: #ffffff;
