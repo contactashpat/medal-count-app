@@ -1,7 +1,9 @@
+'use client'
+
 import { CountryMedals } from '@/hooks/useMedalData'
 import { sortCountries } from '@/utils/sortCountries'
 import { SortKey } from '@/types/sort'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import FlagIcon from './FlagIcon'
 
 type Props = {
@@ -14,45 +16,53 @@ export default function MedalTable({ countries, sortKey }: Props) {
   const sorted = sortCountries(countries, sortKey)
 
   const handleSort = (key: SortKey) => {
-    router.push({ pathname: '/', query: { sort: key } }, undefined, { shallow: true })
+    router.push(`/?sort=${key}`)
   }
-
-  const cellStyle: React.CSSProperties = {
-    padding: '0.5rem',
-    textAlign: 'left'
-  }
-
-  const headerStyle = (key: SortKey): React.CSSProperties => ({
-    ...cellStyle,
-    cursor: 'pointer',
-    textDecoration: sortKey === key ? 'underline' : 'none',
-    backgroundColor: '#f3f3f3'
-  })
 
   return (
-    <div style={{ overflowX: 'auto' }}>
-      <table style={{ borderCollapse: 'collapse', width: '100%', minWidth: '480px' }}>
+    <div className="overflow-x-auto">
+      <table className="w-full min-w-[480px] border-collapse">
         <thead>
-        <tr>
-          <th style={{ ...cellStyle, backgroundColor: '#f3f3f3' }}>Flag</th>
-          <th style={{ ...cellStyle, backgroundColor: '#f3f3f3' }}>Code</th>
-          <th style={headerStyle('gold')} onClick={() => handleSort('gold')}>Gold</th>
-          <th style={headerStyle('silver')} onClick={() => handleSort('silver')}>Silver</th>
-          <th style={headerStyle('bronze')} onClick={() => handleSort('bronze')}>Bronze</th>
-          <th style={headerStyle('total')} onClick={() => handleSort('total')}>Total</th>
+        <tr className="bg-gray-100 dark:bg-zinc-800">
+          <th className="p-2 text-left">Flag</th>
+          <th className="p-2 text-left">Code</th>
+          <th
+            className={`p-2 text-left cursor-pointer ${sortKey === 'gold' ? 'underline' : ''}`}
+            onClick={() => handleSort('gold')}
+          >
+            Gold
+          </th>
+          <th
+            className={`p-2 text-left cursor-pointer ${sortKey === 'silver' ? 'underline' : ''}`}
+            onClick={() => handleSort('silver')}
+          >
+            Silver
+          </th>
+          <th
+            className={`p-2 text-left cursor-pointer ${sortKey === 'bronze' ? 'underline' : ''}`}
+            onClick={() => handleSort('bronze')}
+          >
+            Bronze
+          </th>
+          <th
+            className={`p-2 text-left cursor-pointer ${sortKey === 'total' ? 'underline' : ''}`}
+            onClick={() => handleSort('total')}
+          >
+            Total
+          </th>
         </tr>
         </thead>
         <tbody>
         {sorted.map((country) => {
           const total = country.gold + country.silver + country.bronze
           return (
-            <tr key={country.code} style={{ borderBottom: '1px solid #ddd' }}>
-              <td style={cellStyle}><FlagIcon code={country.code} /></td>
-              <td style={cellStyle}>{country.code}</td>
-              <td style={cellStyle}>{country.gold}</td>
-              <td style={cellStyle}>{country.silver}</td>
-              <td style={cellStyle}>{country.bronze}</td>
-              <td style={cellStyle}>{total}</td>
+            <tr key={country.code} className="border-b border-gray-300 dark:border-zinc-700">
+              <td className="p-2"><FlagIcon code={country.code} /></td>
+              <td className="p-2">{country.code}</td>
+              <td className="p-2">{country.gold}</td>
+              <td className="p-2">{country.silver}</td>
+              <td className="p-2">{country.bronze}</td>
+              <td className="p-2">{total}</td>
             </tr>
           )
         })}
