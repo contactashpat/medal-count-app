@@ -58,7 +58,6 @@ export default function MedalTable({ countries, sortKey }: Props) {
 
             const highlight = (col: SortKey) =>
               sortKey === col ? 'bg-yellow-100 dark:bg-zinc-800' : ''
-
             return (
               <tr key={country.code} className="border-b border-gray-300 dark:border-zinc-700">
                 <td className="p-2">
