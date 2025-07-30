@@ -50,14 +50,11 @@ devDependencies:
     specifier: ^19
     version: 19.1.7(@types/react@19.1.9)
   eslint:
-    specifier: ^9.32.0
+    specifier: ^9
     version: 9.32.0
   eslint-config-next:
     specifier: 15.4.5
     version: 15.4.5(eslint@9.32.0)(typescript@5.8.3)
-  eslint-plugin-tailwindcss:
-    specifier: ^3.18.2
-    version: 3.18.2(tailwindcss@4.1.11)
   prettier:
     specifier: ^3.6.2
     version: 3.6.2
@@ -1820,17 +1817,6 @@ packages:
       semver: 6.3.1
       string.prototype.matchall: 4.0.12
       string.prototype.repeat: 1.0.0
-    dev: true
-
-  /eslint-plugin-tailwindcss@3.18.2(tailwindcss@4.1.11):
-    resolution: {integrity: sha512-QbkMLDC/OkkjFQ1iz/5jkMdHfiMu/uwujUHLAJK5iwNHD8RTxVTlsUezE0toTZ6VhybNBsk+gYGPDq2agfeRNA==}
-    engines: {node: '>=18.12.0'}
-    peerDependencies:
-      tailwindcss: ^3.4.0
-    dependencies:
-      fast-glob: 3.3.3
-      postcss: 8.5.6
-      tailwindcss: 4.1.11
     dev: true
 
   /eslint-scope@8.4.0:

@@ -20,8 +20,12 @@ export function useMedalData() {
         if (!res.ok) throw new Error('Failed to fetch medals data')
         const json = await res.json()
         setData(json)
-      } catch (err: any) {
-        setError(err.message || 'Unknown error')
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message)
+        } else {
+          setError('Unknown error')
+        }
       } finally {
         setLoading(false)
       }
