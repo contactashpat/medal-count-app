@@ -50,11 +50,17 @@ devDependencies:
     specifier: ^19
     version: 19.1.7(@types/react@19.1.9)
   eslint:
-    specifier: ^9
+    specifier: ^9.32.0
     version: 9.32.0
   eslint-config-next:
     specifier: 15.4.5
     version: 15.4.5(eslint@9.32.0)(typescript@5.8.3)
+  eslint-plugin-tailwindcss:
+    specifier: ^3.18.2
+    version: 3.18.2(tailwindcss@4.1.11)
+  prettier:
+    specifier: ^3.6.2
+    version: 3.6.2
   tailwindcss:
     specifier: ^4
     version: 4.1.11
@@ -1816,6 +1822,17 @@ packages:
       string.prototype.repeat: 1.0.0
     dev: true
 
+  /eslint-plugin-tailwindcss@3.18.2(tailwindcss@4.1.11):
+    resolution: {integrity: sha512-QbkMLDC/OkkjFQ1iz/5jkMdHfiMu/uwujUHLAJK5iwNHD8RTxVTlsUezE0toTZ6VhybNBsk+gYGPDq2agfeRNA==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      tailwindcss: ^3.4.0
+    dependencies:
+      fast-glob: 3.3.3
+      postcss: 8.5.6
+      tailwindcss: 4.1.11
+    dev: true
+
   /eslint-scope@8.4.0:
     resolution: {integrity: sha512-sNXOfKCn74rt8RICKMvJS7XKV/Xk9kA7DyJr8mJik3S7Cwgy3qlkkmyS2uQB3jiJg6VNdZd/pDBJu0nvG2NlTg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -2881,6 +2898,12 @@ packages:
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /prop-types@15.8.1:
