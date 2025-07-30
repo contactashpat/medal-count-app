@@ -27,25 +27,25 @@ export default function MedalTable({ countries, sortKey }: Props) {
             <th className="p-2 text-left">🏳</th>
             <th className="p-2 text-left">Code</th>
             <th
-              className={`p-2 text-left cursor-pointer ${sortKey === 'gold' ? 'underline' : ''}`}
+              className={`p-2 text-left cursor-pointer ${sortKey === 'gold' ? 'underline underline-offset-4' : ''}`}
               onClick={() => handleSort('gold')}
             >
               🥇 Gold
             </th>
             <th
-              className={`p-2 text-left cursor-pointer ${sortKey === 'silver' ? 'underline' : ''}`}
+              className={`p-2 text-left cursor-pointer ${sortKey === 'silver' ? 'underline underline-offset-4' : ''}`}
               onClick={() => handleSort('silver')}
             >
               🥈 Silver
             </th>
             <th
-              className={`p-2 text-left cursor-pointer ${sortKey === 'bronze' ? 'underline' : ''}`}
+              className={`p-2 text-left cursor-pointer ${sortKey === 'bronze' ? 'underline underline-offset-4' : ''}`}
               onClick={() => handleSort('bronze')}
             >
               🥉 Bronze
             </th>
             <th
-              className={`p-2 text-left cursor-pointer ${sortKey === 'total' ? 'underline' : ''}`}
+              className={`p-2 text-left cursor-pointer ${sortKey === 'total' ? 'underline underline-offset-4' : ''}`}
               onClick={() => handleSort('total')}
             >
               🏅 Total
