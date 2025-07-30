@@ -32,10 +32,18 @@ export default function MedalTable({ countries, sortKey }: Props) {
             {(Object.values(MedalType) as SortKey[]).map((key) => (
               <th
                 key={key}
+                tabIndex={0}
+                role="button"
                 className={`p-2 text-left cursor-pointer transition-all ${
                   sortKey === key ? 'underline underline-offset-4 font-semibold' : ''
                 }`}
                 onClick={() => handleSort(key)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    handleSort(key)
+                  }
+                }}
               >
                 {MedalLabels[key]}
               </th>
