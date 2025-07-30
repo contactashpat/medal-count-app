@@ -1,10 +1,10 @@
-// src/app/page.tsx
+// src/components/ClientHome.tsx
 'use client'
 
 import { useMedalData } from '@/hooks/useMedalData'
-import MedalTableWrapper from '@/components/MedalTableWrapper'
+import MedalTableWrapper from './MedalTableWrapper'
 
-export default function Home() {
+export default function ClientHome() {
   const { data, loading, error } = useMedalData()
 
   if (loading) return <p className="p-4">Loading...</p>
