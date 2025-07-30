@@ -8,10 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "generate:codes": "tsx scripts/generateCountryTypes.ts"
+    "generate:codes": "tsx scripts/generateCountryTypes.ts",
+    "test": "vitest"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.6",
+    "@prisma/client": "6.13.0",
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -27,11 +29,17 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/supertest": "^6.0.3",
+    "c8": "^10.1.3",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
     "prettier": "^3.6.2",
+    "prisma": "^6.13.0",
+    "supertest": "^7.1.4",
     "tailwindcss": "^4",
+    "tsx": "^4.20.3",
     "tw-animate-css": "^1.3.6",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.4"
   }
 }
