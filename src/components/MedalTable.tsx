@@ -24,31 +24,31 @@ export default function MedalTable({ countries, sortKey }: Props) {
       <table className="w-full min-w-[480px] border-collapse">
         <thead>
           <tr className="bg-gray-100 dark:bg-zinc-800">
-            <th className="p-2 text-left">Flag</th>
+            <th className="p-2 text-left">🏳</th>
             <th className="p-2 text-left">Code</th>
             <th
               className={`p-2 text-left cursor-pointer ${sortKey === 'gold' ? 'underline' : ''}`}
               onClick={() => handleSort('gold')}
             >
-              Gold
+              🥇 Gold
             </th>
             <th
               className={`p-2 text-left cursor-pointer ${sortKey === 'silver' ? 'underline' : ''}`}
               onClick={() => handleSort('silver')}
             >
-              Silver
+              🥈 Silver
             </th>
             <th
               className={`p-2 text-left cursor-pointer ${sortKey === 'bronze' ? 'underline' : ''}`}
               onClick={() => handleSort('bronze')}
             >
-              Bronze
+              🥉 Bronze
             </th>
             <th
               className={`p-2 text-left cursor-pointer ${sortKey === 'total' ? 'underline' : ''}`}
               onClick={() => handleSort('total')}
             >
-              Total
+              🏅 Total
             </th>
           </tr>
         </thead>
