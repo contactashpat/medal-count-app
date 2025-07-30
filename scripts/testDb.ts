@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 async function main() {
   const medals = await prisma.medal.findMany({
-    where: { year: 2022 },
+    where: { yearValue: 2022 },
     include: { country: true },
     orderBy: [{ country: { code: 'asc' } }, { type: 'asc' }],
   })

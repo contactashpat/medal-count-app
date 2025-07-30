@@ -14,11 +14,18 @@ model Country {
   medals  Medal[]
 }
 
+model Year {
+  id     Int     @id @default(autoincrement())
+  value  Int     @unique
+  medals Medal[] // relation
+}
+
 model Medal {
-  id         Int     @id @default(autoincrement())
-  year       Int     // e.g. 2022
-  type       String  // 'gold' | 'silver' | 'bronze'
-  count      Int     // how many medals of that type
-  country    Country @relation(fields: [countryId], references: [id])
-  countryId  Int
+  id        Int      @id @default(autoincrement())
+  type      String
+  count     Int
+  country   Country  @relation(fields: [countryId], references: [id])
+  countryId Int
+  year      Year?    @relation(fields: [yearValue], references: [value])
+  yearValue Int?
 }

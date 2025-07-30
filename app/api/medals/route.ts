@@ -7,9 +7,14 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
   const year = parseInt(searchParams.get('year') || '2022', 10)
 
+  console.log('Fetching medals for year:', year)
   try {
     const medals = await prisma.medal.findMany({
-      where: { year },
+      where: {
+        year: {
+          value: year,
+        },
+      },
       include: { country: true },
     })
 
