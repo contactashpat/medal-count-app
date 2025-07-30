@@ -1,35 +1,21 @@
 import { CountryMedals } from '@/hooks/useMedalData'
-import { getTotalMedals } from './getTotalMedals'
 import { SortKey } from '@/types/sort'
+import { CountryCode } from '@/constants/countryCodes'
 
-export function sortCountries(data: CountryMedals[], sortKey: SortKey): CountryMedals[] {
-  const countries = [...data] // non-mutating
+export function sortCountries(
+  countries: CountryMedals[],
+  sortKey: SortKey,
+  countryOrder: CountryCode[]
+): CountryMedals[] {
+  const sorted = [...countries].sort((a, b) => {
+    const valA = sortKey === 'total' ? a.gold + a.silver + a.bronze : a[sortKey]
+    const valB = sortKey === 'total' ? b.gold + b.silver + b.bronze : b[sortKey]
 
-  countries.sort((a, b) => {
-    const primary = compareByKey(a, b, sortKey)
+    if (valB !== valA) return valB - valA
 
-    if (primary !== 0) return primary
-
-    // Tiebreakers
-    switch (sortKey) {
-      case 'total':
-        return b.gold - a.gold
-      case 'gold':
-        return b.silver - a.silver
-      case 'silver':
-      case 'bronze':
-        return b.gold - a.gold
-      default:
-        return 0
-    }
+    // tie-breaking by fixed order in countryOrder
+    return countryOrder.indexOf(a.code as CountryCode) - countryOrder.indexOf(b.code as CountryCode)
   })
 
-  return countries.slice(0, 10)
-}
-
-function compareByKey(a: CountryMedals, b: CountryMedals, key: SortKey): number {
-  if (key === 'total') {
-    return getTotalMedals(b) - getTotalMedals(a)
-  }
-  return b[key] - a[key]
+  return sorted
 }

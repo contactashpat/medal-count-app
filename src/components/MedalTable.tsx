@@ -5,6 +5,8 @@ import { sortCountries } from '@/utils/sortCountries'
 import { SortKey } from '@/types/sort'
 import { useRouter } from 'next/navigation'
 import FlagIcon from './FlagIcon'
+import { countryOrder } from '@/constants/countryCodes'
+import { MedalLabels, MedalType } from '@/constants/medalTypes'
 
 type Props = {
   countries: CountryMedals[]
@@ -13,11 +15,13 @@ type Props = {
 
 export default function MedalTable({ countries, sortKey }: Props) {
   const router = useRouter()
-  const sorted = sortCountries(countries, sortKey)
+  const sorted = sortCountries(countries, sortKey, countryOrder) // ← updated
 
   const handleSort = (key: SortKey) => {
     router.push(`/?sort=${key}`)
   }
+
+  const highlight = (col: SortKey) => (sortKey === col ? 'bg-yellow-100 dark:bg-zinc-800' : '')
 
   return (
     <div className="overflow-x-auto">
@@ -26,38 +30,22 @@ export default function MedalTable({ countries, sortKey }: Props) {
           <tr className="bg-gray-100 dark:bg-zinc-800">
             <th className="p-2 text-left">🏳</th>
             <th className="p-2 text-left">Code</th>
-            <th
-              className={`p-2 text-left cursor-pointer ${sortKey === 'gold' ? 'underline underline-offset-4' : ''}`}
-              onClick={() => handleSort('gold')}
-            >
-              🥇 Gold
-            </th>
-            <th
-              className={`p-2 text-left cursor-pointer ${sortKey === 'silver' ? 'underline underline-offset-4' : ''}`}
-              onClick={() => handleSort('silver')}
-            >
-              🥈 Silver
-            </th>
-            <th
-              className={`p-2 text-left cursor-pointer ${sortKey === 'bronze' ? 'underline underline-offset-4' : ''}`}
-              onClick={() => handleSort('bronze')}
-            >
-              🥉 Bronze
-            </th>
-            <th
-              className={`p-2 text-left cursor-pointer ${sortKey === 'total' ? 'underline underline-offset-4' : ''}`}
-              onClick={() => handleSort('total')}
-            >
-              🏅 Total
-            </th>
+            {(Object.values(MedalType) as SortKey[]).map((key) => (
+              <th
+                key={key}
+                className={`p-2 text-left cursor-pointer transition-all ${
+                  sortKey === key ? 'underline underline-offset-4 font-semibold' : ''
+                }`}
+                onClick={() => handleSort(key)}
+              >
+                {MedalLabels[key]}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
           {sorted.map((country) => {
             const total = country.gold + country.silver + country.bronze
-
-            const highlight = (col: SortKey) =>
-              sortKey === col ? 'bg-yellow-100 dark:bg-zinc-800' : ''
             return (
               <tr key={country.code} className="border-b border-gray-300 dark:border-zinc-700">
                 <td className="p-2">

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "generate:codes": "tsx scripts/generateCountryTypes.ts"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.6",
