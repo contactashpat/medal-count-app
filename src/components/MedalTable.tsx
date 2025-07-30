@@ -5,7 +5,6 @@ import { sortCountries } from '@/utils/sortCountries'
 import { SortKey } from '@/types/sort'
 import { useRouter } from 'next/navigation'
 import FlagIcon from './FlagIcon'
-import { countryOrder } from '@/constants/countryCodes'
 import { MedalLabels, MedalType } from '@/constants/medalTypes'
 
 type Props = {
@@ -15,7 +14,7 @@ type Props = {
 
 export default function MedalTable({ countries, sortKey }: Props) {
   const router = useRouter()
-  const sorted = sortCountries(countries, sortKey, countryOrder) // ← updated
+  const sorted = sortCountries(countries, sortKey) // ← updated
 
   const handleSort = (key: SortKey) => {
     router.push(`/?sort=${key}`)

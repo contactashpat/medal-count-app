@@ -9,7 +9,6 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "generate:codes": "tsx scripts/generateCountryTypes.ts",
     "test": "vitest"
   },
   "dependencies": {
