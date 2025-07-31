@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Country {
+  id      Int     @id @default(autoincrement())
+  code    String  @unique
+  name    String
+  medals  Medal[]
+}
+
+model Medal {
+  id         Int     @id @default(autoincrement())
+  year       Int     // e.g. 2022
+  type       String  // 'gold' | 'silver' | 'bronze'
+  count      Int     // how many medals of that type
+  country    Country @relation(fields: [countryId], references: [id])
+  countryId  Int
+}

@@ -1,9 +1,18 @@
-import styles from './FlagIcon.module.css'
-
 // TODO: we can make this dynamic later by fetching country codes and sorting. For this we will have to fetch appropriate sprite as well making it more dynamic but with added complexity
 const countryOrder = [
-  'AUT', 'BLR', 'CAN', 'CHN', 'FRA', 'GER', 'ITA', 'NED',
-  'NOR', 'RUS', 'SUI', 'SWE', 'USA'
+  'AUT',
+  'BLR',
+  'CAN',
+  'CHN',
+  'FRA',
+  'GER',
+  'ITA',
+  'NED',
+  'NOR',
+  'RUS',
+  'SUI',
+  'SWE',
+  'USA',
 ]
 
 type Props = {
@@ -17,9 +26,8 @@ export default function FlagIcon({ code }: Props) {
 
   return (
     <div
-      className={styles.flag}
+      className="w-[28px] h-[17px] bg-no-repeat bg-[url('/flags.png')] bg-left"
       style={{ backgroundPositionY: `${offsetY}px` }}
-      title={code}
     />
   )
 }

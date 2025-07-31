@@ -47,4 +47,3 @@ This document tracks potential enhancements and technical improvements for futur
 - [ ] 🌙 Add dark mode support
 - [ ] 🌐 Internationalize app (i18n) with country names and local formats
 - [ ] 📦 Deploy to Vercel or Netlify or some other cloud
-

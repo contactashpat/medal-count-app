@@ -9,14 +9,14 @@ type Props = {
 export default function MedalRow({ country }: Props) {
   return (
     <tr>
-      <td style={{ padding: '0.5rem' }}>
+      <td className="p-2">
         <FlagIcon code={country.code} />
       </td>
-      <td style={{ padding: '0.5rem' }}>{country.code}</td>
-      <td style={{ padding: '0.5rem' }}>{country.gold}</td>
-      <td style={{ padding: '0.5rem' }}>{country.silver}</td>
-      <td style={{ padding: '0.5rem' }}>{country.bronze}</td>
-      <td style={{ padding: '0.5rem' }}>{getTotalMedals(country)}</td>
+      <td className="p-2">{country.code}</td>
+      <td className="p-2">{country.gold}</td>
+      <td className="p-2">{country.silver}</td>
+      <td className="p-2">{country.bronze}</td>
+      <td className="p-2">{getTotalMedals(country)}</td>
     </tr>
   )
 }
