@@ -8,6 +8,12 @@ export type CountryMedals = {
   bronze: number
 }
 
+async function fetchJson<T>(url: string): Promise<T> {
+  const res = await fetch(url)
+  if (!res.ok) throw new Error('Failed to fetch data')
+  return res.json()
+}
+
 export function useMedalData() {
   const [data, setData] = useState<CountryMedals[] | null>(null)
   const [loading, setLoading] = useState(true)
@@ -16,9 +22,7 @@ export function useMedalData() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/medals.json')
-        if (!res.ok) throw new Error('Failed to fetch medals data')
-        const json = await res.json()
+        const json = await fetchJson<CountryMedals[]>('/api/medals')
         setData(json)
       } catch (err: unknown) {
         if (err instanceof Error) {
