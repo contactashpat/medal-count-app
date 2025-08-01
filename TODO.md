@@ -6,17 +6,17 @@ This document tracks potential enhancements and technical improvements for futur
 
 ## 🧠 Logic & Architecture
 
-- [ ] ✅ Add unit tests for sorting logic (`sortCountries`)
-- [ ] ✅ Add tests for `useMedalData` (loading, success, error)
-- [ ] 🔁 Extract `countryOrder` into `/constants/countryCodes.ts`
-- [ ] 💡 Add support for ascending/descending toggle when sorting
+- [x] ✅ Add unit tests for sorting logic (`sortCountries`)
+- [x] ✅ Add tests for `useMedalData` (loading, success, error)
+- [x] 🔁 Extract `countryOrder` into `/constants/countryCodes.ts`
+- [x] 💡 Add support for ascending/descending toggle when sorting
 
 ---
 
 ## 🖼 UI/UX Improvements
 
-- [ ] ✨ Add medal icons (🥇 🥈 🥉) to column headers
-- [ ] ✨ Highlight the currently sorted column with background color
+- [x] ✨ Add medal icons (🥇 🥈 🥉) to column headers
+- [x] ✨ Highlight the currently sorted column with background color
 - [ ] ✨ Animate table updates when sort changes
 
 ---
@@ -24,7 +24,7 @@ This document tracks potential enhancements and technical improvements for futur
 ## 📱 Responsiveness & Accessibility
 
 - [ ] 📱 Improve mobile responsiveness (collapse columns or horizontal scroll)
-- [ ] ♿ Add keyboard navigation to sortable headers
+- [x] ♿ Add keyboard navigation to sortable headers
 
 ---
 
@@ -44,6 +44,14 @@ This document tracks potential enhancements and technical improvements for futur
 
 ## 🌓 Advanced Extras (Stretch Goals)
 
-- [ ] 🌙 Add dark mode support
+- [x] 🌙 Add dark mode support
 - [ ] 🌐 Internationalize app (i18n) with country names and local formats
-- [ ] 📦 Deploy to Vercel or Netlify or some other cloud
+- [x] 📦 Deploy to Vercel or Netlify or some other cloud
+
+---
+
+## 🚧 Upcoming Features (advanced-ui-3)
+- [ ] 🗓 Add year selector with dynamic backend data
+- [ ] 🌿 Drill down medal counts to category and participant level
+- [ ] 📊 Add charts or visual summary of medal distribution
+- [ ] ⏱ Show live medal updates with polling or WebSocket
